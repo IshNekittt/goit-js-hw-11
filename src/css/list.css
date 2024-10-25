@@ -1,0 +1,8 @@
+.general-list {
+  margin: 32px auto;
+  padding: 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1128px;
+  gap: 24px;
+}
