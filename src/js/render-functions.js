@@ -14,7 +14,7 @@ const drawMarkup = data => {
       }) => {
         return `
     <li class="general-list-item" >
-        <img src="${webformatURL}">
+        <a href="${largeImageURL}"><img src="${webformatURL}" alt="${tags}"></a>
         <div>
             <p class="general-list-item-p" ><b>Likes</b><span>${likes}</span></p>
             <p class="general-list-item-p" ><b>Views</b><span>${views}</span></p>
