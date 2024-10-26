@@ -1,6 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import fetchRequest from './js/pixabay-api';
+import drawMarkup from './js/render-functions';
 
 const searchForm = document.forms.searchForm;
 const inp = searchForm.elements.input;
@@ -16,10 +17,10 @@ submitBtn.addEventListener('click', e => {
   outputList.innerHTML = 'Loading images, please wait...';
   submitBtn.disabled = true;
 
-  fetchRequest(inpVal)
-    .then(result => {
-      outputList.innerHTML = 'Done';
-      console.log(result);
+  const photosArr = fetchRequest(inpVal)
+    .then(({ hits }) => {
+      console.log(hits);
+      outputList.innerHTML = drawMarkup(hits);
     })
     .catch(error => {
       iziToast.error({

@@ -1,0 +1,30 @@
+const drawMarkup = data => {
+  console.log(data);
+
+  return data
+    .map(
+      ({
+        webformatURL,
+        largeImageURL,
+        tags,
+        likes,
+        views,
+        comments,
+        downloads,
+      }) => {
+        return `
+    <li class="general-list-item" >
+        <img src="${webformatURL}">
+        <div>
+            <p class="general-list-item-p" ><b>Likes</b><span>${likes}</span></p>
+            <p class="general-list-item-p" ><b>Views</b><span>${views}</span></p>
+            <p class="general-list-item-p" ><b>Comments</b><span>${comments}</span></p>
+            <p class="general-list-item-p" ><b>Downloads</b><span>${downloads}</span></p>
+        </div>
+    </li>
+    `;
+      }
+    )
+    .join('');
+};
+export default drawMarkup;

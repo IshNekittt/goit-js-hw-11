@@ -5,5 +5,36 @@
   flex-wrap: wrap;
   max-width: 1128px;
   gap: 24px;
-  justify-content: center;
+}
+
+.general-list-item {
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #808080;
+  display: flex;
+  flex-basis: calc((100% - 2 * 24px) / 3);
+  flex-direction: column;
+  max-height: 300px;
+  border-radius: 4px;
+  min-width: 320px;
+}
+
+.general-list-item img {
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.general-list-item div {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 4px 20px;
+  align-items: center;
+}
+
+.general-list-item-p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
