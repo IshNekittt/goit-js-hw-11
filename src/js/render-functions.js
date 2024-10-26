@@ -1,6 +1,4 @@
 const drawMarkup = data => {
-  console.log(data);
-
   return data
     .map(
       ({

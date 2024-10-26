@@ -1,5 +1,7 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 import fetchRequest from './js/pixabay-api';
 import drawMarkup from './js/render-functions';
 
@@ -14,12 +16,11 @@ submitBtn.addEventListener('click', e => {
   if (!inpVal) {
     return;
   }
-  outputList.innerHTML = 'Loading images, please wait...';
+  outputList.innerHTML = '<span class="loader"></span>';
   submitBtn.disabled = true;
 
   const photosArr = fetchRequest(inpVal)
     .then(({ hits }) => {
-      console.log(hits);
       outputList.innerHTML = drawMarkup(hits);
     })
     .catch(error => {
@@ -31,5 +32,10 @@ submitBtn.addEventListener('click', e => {
     })
     .finally(() => {
       submitBtn.disabled = false;
+      lightboxGallery.refresh();
     });
-});
+  });
+  const lightboxGallery = new SimpleLightbox('.general-list a', {
+    captionsData: "alt",
+    captionDelay: 250,
+  });
